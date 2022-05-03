@@ -29,15 +29,14 @@ displayNames = {'a': 'Ask',
                 }
 
 
-def myfunk(elem):
-    return {displayNames[elem]:keyData[elem]}
+# def zipper(elem):
+#     return {displayNames[elem]:keyData[elem]}
+# tickerData = map(zipper, list(keyData.keys()))
 
-x = map(myfunk, list(keyData.keys()))
-
-
+tickerData = map(lambda elem: {displayNames[elem]:keyData[elem]}, list(keyData.keys()))
 
 print(f"""
 DATA FOR TICKER {ticker}
 
-{json.dumps(list(x), indent=2)}
+{json.dumps(list(tickerData), indent=2)}
 """)
