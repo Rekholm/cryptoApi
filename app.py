@@ -11,8 +11,8 @@ choice = input()
 currency = ['EUR','USD']
 
 #Kraken API
-resp = requests.get(f'https://api.kraken.com/0/public/Ticker?pair={ticker}{currency[int(choice)]}')
-data = resp.json()
+krakenResp = requests.get(f'https://api.kraken.com/0/public/Ticker?pair={ticker}{currency[int(choice)]}')
+data = krakenResp.json()
 
 
 keyData = data['result'][list(data['result'].keys())[0]]
@@ -41,6 +41,3 @@ DATA FOR TICKER {ticker}
 
 {json.dumps(list(x), indent=2)}
 """)
-
-
-print(data)
