@@ -1,6 +1,5 @@
 import requests
-import json
-
+from tickerData import tickerData
 
 
 print("Enter the ticker for testing")
@@ -33,10 +32,12 @@ displayNames = {'a': 'Ask',
 #     return {displayNames[elem]:keyData[elem]}
 # tickerData = map(zipper, list(keyData.keys()))
 
-tickerData = map(lambda elem: {displayNames[elem]:keyData[elem]}, list(keyData.keys()))
+mapData = map(lambda elem: {displayNames[elem]:keyData[elem]}, list(keyData.keys()))
+listData = list(mapData)
 
-print(f"""
-DATA FOR TICKER {ticker}
 
-{json.dumps(list(tickerData), indent=2)}
-""")
+
+
+currentTickerData = tickerData(listData, ticker)
+
+currentTickerData.high()
