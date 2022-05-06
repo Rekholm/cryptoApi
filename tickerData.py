@@ -1,5 +1,6 @@
 import json
 
+
 class tickerData():
     """
     Returns desired ticker information
@@ -46,7 +47,8 @@ class tickerData():
         print("--------------")
         print(f"\nTICKER -- {self.ticker}")
         print(f"Last trade closed: {self.listData[2]['Last trade closed'][0]}")
-        print(f"Last trade lot volume {self.listData[2]['Last trade closed'][1]}")
+        print(
+            f"Last trade lot volume {self.listData[2]['Last trade closed'][1]}")
         print("--------------")
         return self.listData[2]['Last trade closed']
 
@@ -61,16 +63,20 @@ class tickerData():
     def volumeWeightedAveragePrice(self):
         print("--------------")
         print(f"\nTICKER -- {self.ticker}")
-        print(f"Weighted average price today: {self.listData[4]['Volume weighted average price'][0]}")
-        print(f"Wighted average price 24H: {self.listData[4]['Volume weighted average price'][1]}")
+        print(
+            f"Weighted average price today: {self.listData[4]['Volume weighted average price'][0]}")
+        print(
+            f"Wighted average price 24H: {self.listData[4]['Volume weighted average price'][1]}")
         print("--------------")
         return self.listData[4]['Volume weighted average price']
 
     def numberOfTrades(self):
         print("--------------")
         print(f"\nTICKER -- {self.ticker}")
-        print(f"Number of trades today: {self.listData[5]['Number of trades'][0]}")
-        print(f"Number of trades 24H: {self.listData[5]['Number of trades'][1]}")
+        print(
+            f"Number of trades today: {self.listData[5]['Number of trades'][0]}")
+        print(
+            f"Number of trades 24H: {self.listData[5]['Number of trades'][1]}")
         print("--------------")
         return self.listData[5]['Number of trades']
 
@@ -93,5 +99,6 @@ class tickerData():
     def openingPrice(self):
         print("--------------")
         print(f"\nTICKER -- {self.ticker}")
-        print(f"Opening price today {self.listData[8]['Todays opening price'][0]}")
+        print(
+            f"Opening price today {self.listData[8]['Todays opening price']}")
         return self.listData[8]['Todays opening price']

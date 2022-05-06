@@ -1,16 +1,17 @@
 import requests
-from tickerData import tickerData
 
+from tickerData import tickerData
 
 print("Enter the ticker for testing")
 ticker = input().upper()
 
 print("Choose currency EURO - 0 / USD - 1")
 choice = input()
-currency = ['EUR','USD']
+currency = ['EUR', 'USD']
 
-#Kraken API
-krakenResp = requests.get(f'https://api.kraken.com/0/public/Ticker?pair={ticker}{currency[int(choice)]}')
+# Kraken API
+krakenResp = requests.get(
+    f'https://api.kraken.com/0/public/Ticker?pair={ticker}{currency[int(choice)]}')
 data = krakenResp.json()
 
 
@@ -32,12 +33,11 @@ displayNames = {'a': 'Ask',
 #     return {displayNames[elem]:keyData[elem]}
 # tickerData = map(zipper, list(keyData.keys()))
 
-mapData = map(lambda elem: {displayNames[elem]:keyData[elem]}, list(keyData.keys()))
+mapData = map(
+    lambda elem: {displayNames[elem]: keyData[elem]}, list(keyData.keys()))
 listData = list(mapData)
-
-
 
 
 currentTickerData = tickerData(listData, ticker)
 
-currentTickerData.high()
+currentTickerData.openingPrice()
