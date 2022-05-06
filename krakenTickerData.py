@@ -1,7 +1,7 @@
 import json
 
 
-class tickerData():
+class krakenTickerData():
     """
     Returns desired ticker information
 

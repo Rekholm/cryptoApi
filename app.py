@@ -1,6 +1,6 @@
 import requests
 
-from tickerData import tickerData
+from krakenTickerData import krakenTickerData
 
 print("Enter the ticker for testing")
 ticker = input().upper()
@@ -29,16 +29,23 @@ displayNames = {
     "h": "High",
     "o": "Todays opening price",
 }
-
-
 # def zipper(elem):
 #     return {displayNames[elem]:keyData[elem]}
 # tickerData = map(zipper, list(keyData.keys()))
-
+# Commented code above and the code below yield same results
 mapData = map(lambda elem: {displayNames[elem]: keyData[elem]}, list(keyData.keys()))
 listData = list(mapData)
+currentTickerData = krakenTickerData(listData, ticker)
 
 
-currentTickerData = tickerData(listData, ticker)
+# Uncomment below to try
 
-currentTickerData.high()
+# currentTickerData.ask()
+# currentTickerData.bid()
+# currentTickerData.lastTradeClosed()
+# currentTickerData.volume()
+# currentTickerData.volumeWeightedAveragePrice
+# currentTickerData.numberOfTrades()
+# currentTickerData.low()
+# currentTickerData.high()
+# currentTickerData.openingPrice()
