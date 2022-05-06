@@ -12,10 +12,10 @@ currency = ['EUR', 'USD']
 # Kraken API
 krakenResp = requests.get(
     f'https://api.kraken.com/0/public/Ticker?pair={ticker}{currency[int(choice)]}')
-data = krakenResp.json()
+krakenData = krakenResp.json()
 
 
-keyData = data['result'][list(data['result'].keys())[0]]
+keyData = krakenData['result'][list(krakenData['result'].keys())[0]]
 
 displayNames = {'a': 'Ask',
                 'b': 'Bid',
@@ -40,4 +40,4 @@ listData = list(mapData)
 
 currentTickerData = tickerData(listData, ticker)
 
-currentTickerData.openingPrice()
+currentTickerData.high()
